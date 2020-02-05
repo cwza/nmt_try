@@ -2,9 +2,30 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {}
+index = {"tokenize_data": "02_data.tatoeba.ipynb",
+         "get_datasets": "02_data.tatoeba.ipynb",
+         "generate_from_strs": "03a_models.core.ipynb",
+         "WPEmbed": "03b_models.tran2tran.ipynb",
+         "gen_key_padding_mask": "03b_models.tran2tran.ipynb",
+         "gen_lm_mask": "03b_models.tran2tran.ipynb",
+         "BatchFirstTransformerEncoder": "03b_models.tran2tran.ipynb",
+         "TranEncoder": "03b_models.tran2tran.ipynb",
+         "BatchFirstTransformerDecoder": "03b_models.tran2tran.ipynb",
+         "TranDecoder": "03b_models.tran2tran.ipynb",
+         "Tran2Tran": "03b_models.tran2tran.ipynb",
+         "GeneratedTran2Tran": "03b_models.tran2tran.ipynb",
+         "generate_from_ids": "03c_models.gru2gru.ipynb",
+         "GRUEncoder": "03c_models.gru2gru.ipynb",
+         "GRUDecoder": "03c_models.gru2gru.ipynb",
+         "GRU2GRU": "03c_models.gru2gru.ipynb",
+         "GeneratedGRU2GRU": "03c_models.gru2gru.ipynb",
+         "compute_bleu": "04_metrics.ipynb"}
 
-modules = []
+modules = ["data/tatoeba.py",
+           "models/core.py",
+           "models/tran2tran.py",
+           "models/gru2gru.py",
+           "metrics.py"]
 
 doc_url = "https://cwza.github.io/nmt_small/"
 
