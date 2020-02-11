@@ -1,5 +1,11 @@
 {
   "nmt_small": {
-    "Overview": "/"
+    "Overview": "/",
+    "Data Tatoeba": "/data.tatoeba",
+    "Models Patch": "/models.patch",
+    "Bert2GPT2": "/models.bert2gpt2",
+    "GRU2GRU": "/models.gru2gru",
+    "Model Tran2Tran": "/models.tran2tran",
+    "Metrics": "/metrics"
   }
 }

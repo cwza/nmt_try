@@ -44,7 +44,11 @@ setuptools.setup(
     entry_points = { 'console_scripts': cfg.get('console_scripts','').split() },
     install_requires = [
         'fastai_transformers_utils @ git+https://github.com/cwza/fastai_transformers_utils.git',
-        'nltk',
+        'fastai2_utils @ git+https://github.com/cwza/fastai2_utils.git',
+        'nltk', 'optuna'
     ],
+    extras_require={
+        'dev': ['nbdev']
+    },
     **setup_cfg)
 

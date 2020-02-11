@@ -6,6 +6,7 @@ __all__ = ['tokenize_data', 'get_datasets']
 from fastai2.basics import *
 from transformers import AutoTokenizer
 
+from fastai2_utils.data.all import *
 from fastai_transformers_utils.all import *
 
 # Cell
@@ -28,18 +29,20 @@ def tokenize_data(ori_data_loc, enc_tokenizer, dec_tokenizer):
     return tok_df
 
 # Cell
-def get_datasets(tok_data_loc, enc_tokenizer, dec_tokenizer, enc_seq_len, dec_seq_len):
+def get_datasets(tok_data_loc, enc_tokenizer, dec_tokenizer, enc_seq_len, dec_seq_len, pct=1.0):
     tok_df = pd.read_csv(tok_data_loc)
 
     splits = ColSplitter()(tok_df)
+    splits = pct_splits(splits, pct=pct)
+
     encoder_input_tfm = [attrgetter('Chinese'), lambda x: x.split(' '), TransformersNumericalize(enc_tokenizer), Pad2Max(enc_seq_len, enc_tokenizer.pad_token_id)]
     decoder_input_tfm = [attrgetter('English'), lambda x: x.split(' '), TransformersNumericalize(dec_tokenizer), Pad2Max(dec_seq_len+1, dec_tokenizer.pad_token_id), lambda x: x[:-1]]
     decoder_output_tfm = [attrgetter('English'), lambda x: x.split(' '), TransformersNumericalize(dec_tokenizer), Pad2Max(dec_seq_len+1, dec_tokenizer.pad_token_id), lambda x: x[1:]]
-
     ds_tfms = [
         encoder_input_tfm,
         decoder_input_tfm,
         decoder_output_tfm,
     ]
+
     dss = Datasets(tok_df, tfms=ds_tfms, splits=splits, n_inp=2)
     return dss

@@ -143,3 +143,4 @@ checklink/cookies.txt
 ################# my ignore files ######################
 
 /nbs/data/
+/nbs/models/

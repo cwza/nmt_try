@@ -18,7 +18,7 @@ author_email = cwz0205a@gmail.com
 copyright = cwza
 
 nbs_path = nbs
-tst_flags = slow
+tst_flags = slow|skip
 ```
 
 ## Edit setup.py
@@ -26,35 +26,34 @@ tst_flags = slow
 # requirements = cfg.get('requirements','').split()
 setuptools.setup(
     # install_requires = requirements,
-    install_requires=[
-        'fastai_transformers_utils @ git+https://github.com/cwza/fastai_transformers_utils.git',
+    install_requires = [
+        'fastai2 @ git+https://github.com/fastai/fastai2.git',
     ],
+    extras_require={
+        'dev': ['nbdev']
+    },
 ```
 
 
 ## Add Makefile
 ```
 install:
-	pip3 install -e .
+	pip3 install -e ".[dev]"
 
 uninstall:
 	python3 setup.py develop --uninstall
 
 test:
-	nbdev_test_nbs
+	nbdev_test_nbs --timing=true
 
 test-slow:
-	nbdev_test_nbs --flags=slow
+	nbdev_test_nbs --flags=slow --timing=true
 
-build-all:	build-lib build-docs clean-nbs
-	
-build-lib:
+build-all:
 	nbdev_build_lib
-
-build-docs:
-	nbdev_build_docs
-
-clean-nbs:
+	rm -f ./docs/*.html
+	nbdev_build_docs --force_all=true
+	nbdev_trust_nbs
 	nbdev_clean_nbs
 ```
 
@@ -62,15 +61,6 @@ clean-nbs:
 ``` bash
 nbdev_build_lib
 nbdev_install_git_hooks
-```
-
-## Add dependencies
-Edit setup.py
-``` python
-setuptools.setup(
-    install_requires=[
-        'fastai_transformers_utils @ git+https://github.com/cwza/fastai_transformers_utils.git',
-    ],
 ```
 
 ## Install

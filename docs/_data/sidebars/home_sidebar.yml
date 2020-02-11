@@ -9,6 +9,24 @@ entries:
     - output: web,pdf
       title: Overview
       url: /
+    - output: web,pdf
+      title: Data Tatoeba
+      url: /data.tatoeba
+    - output: web,pdf
+      title: Models Patch
+      url: /models.patch
+    - output: web,pdf
+      title: Bert2GPT2
+      url: /models.bert2gpt2
+    - output: web,pdf
+      title: GRU2GRU
+      url: /models.gru2gru
+    - output: web,pdf
+      title: Model Tran2Tran
+      url: /models.tran2tran
+    - output: web,pdf
+      title: Metrics
+      url: /metrics
     output: web
     title: nmt_small
   output: web
