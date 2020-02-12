@@ -113,7 +113,7 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="WPEmbed" class="doc_header"><code>class</code> <code>WPEmbed</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/tran2tran.py#L32" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WPEmbed</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>max_pos_id</code></strong>, <strong><code>pad_id</code></strong>) :: <code>Module</code></p>
+<h2 id="WPEmbed" class="doc_header"><code>class</code> <code>WPEmbed</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/tran2tran.py#L32" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>WPEmbed</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>max_pos_id</code></strong>, <strong><code>pad_id</code></strong>) :: <code>Module</code></p>
 </blockquote>
 <p>returns position_embedding + word_embedding</p>
 
@@ -159,7 +159,7 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="TranEncoder" class="doc_header"><code>class</code> <code>TranEncoder</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/tran2tran.py#L63" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TranEncoder</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>max_pos_id</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>num_head</code></strong>=<em><code>8</code></em>, <strong><code>num_encoder_layers</code></strong>=<em><code>6</code></em>, <strong><code>dim_feedforward</code></strong>=<em><code>2048</code></em>, <strong><code>drop_p</code></strong>=<em><code>0.1</code></em>) :: <code>Module</code></p>
+<h2 id="TranEncoder" class="doc_header"><code>class</code> <code>TranEncoder</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/tran2tran.py#L63" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TranEncoder</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>max_pos_id</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>num_head</code></strong>=<em><code>8</code></em>, <strong><code>num_encoder_layers</code></strong>=<em><code>6</code></em>, <strong><code>dim_feedforward</code></strong>=<em><code>2048</code></em>, <strong><code>drop_p</code></strong>=<em><code>0.1</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>The encoder of transformer architecture.
 WPEmbed -&gt; TransformerEncoder.</p>
@@ -210,7 +210,7 @@ WPEmbed -&gt; TransformerEncoder.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="TranDecoder" class="doc_header"><code>class</code> <code>TranDecoder</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/tran2tran.py#L101" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TranDecoder</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>max_pos_id</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>num_head</code></strong>=<em><code>8</code></em>, <strong><code>num_decoder_layers</code></strong>=<em><code>6</code></em>, <strong><code>dim_feedforward</code></strong>=<em><code>2048</code></em>, <strong><code>drop_p</code></strong>=<em><code>0.1</code></em>) :: <code>Module</code></p>
+<h2 id="TranDecoder" class="doc_header"><code>class</code> <code>TranDecoder</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/tran2tran.py#L101" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TranDecoder</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>max_pos_id</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>num_head</code></strong>=<em><code>8</code></em>, <strong><code>num_decoder_layers</code></strong>=<em><code>6</code></em>, <strong><code>dim_feedforward</code></strong>=<em><code>2048</code></em>, <strong><code>drop_p</code></strong>=<em><code>0.1</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>The decoder of transformer architecture.
 WPEmbed -&gt; TransformerDecoder -&gt; Linear Classifier</p>
@@ -264,7 +264,7 @@ WPEmbed -&gt; TransformerDecoder -&gt; Linear Classifier</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Tran2Tran" class="doc_header"><code>class</code> <code>Tran2Tran</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/tran2tran.py#L153" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Tran2Tran</code>(<strong><code>encoder</code></strong>:<a href="/nmt_small/03c_models.tran2tran#TranEncoder"><code>TranEncoder</code></a>, <strong><code>decoder</code></strong>:<a href="/nmt_small/03c_models.tran2tran#TranDecoder"><code>TranDecoder</code></a>, <strong><code>enc_pad_id</code></strong>) :: <code>Module</code></p>
+<h2 id="Tran2Tran" class="doc_header"><code>class</code> <code>Tran2Tran</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/tran2tran.py#L153" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Tran2Tran</code>(<strong><code>encoder</code></strong>:<a href="/nmt_try/03c_models.tran2tran#TranEncoder"><code>TranEncoder</code></a>, <strong><code>decoder</code></strong>:<a href="/nmt_try/03c_models.tran2tran#TranDecoder"><code>TranDecoder</code></a>, <strong><code>enc_pad_id</code></strong>) :: <code>Module</code></p>
 </blockquote>
 <p>Seq2Seq architecture. Encoder and decoder are transformer.</p>
 
@@ -314,7 +314,7 @@ WPEmbed -&gt; TransformerDecoder -&gt; Linear Classifier</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="GeneratedTran2Tran" class="doc_header"><code>class</code> <code>GeneratedTran2Tran</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/tran2tran.py#L181" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GeneratedTran2Tran</code>(<strong><code>seq2seq</code></strong>:<a href="/nmt_small/03c_models.tran2tran#Tran2Tran"><code>Tran2Tran</code></a>, <strong><code>enc_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>, <strong><code>dec_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>)</p>
+<h2 id="GeneratedTran2Tran" class="doc_header"><code>class</code> <code>GeneratedTran2Tran</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/tran2tran.py#L181" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GeneratedTran2Tran</code>(<strong><code>seq2seq</code></strong>:<a href="/nmt_try/03c_models.tran2tran#Tran2Tran"><code>Tran2Tran</code></a>, <strong><code>enc_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>, <strong><code>dec_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>)</p>
 </blockquote>
 
 </div>
@@ -357,7 +357,7 @@ WPEmbed -&gt; TransformerDecoder -&gt; Linear Classifier</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generate_from_ids" class="doc_header"><code>generate_from_ids</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/tran2tran.py#L194" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_from_ids</code>(<strong><code>src_input_ids</code></strong>, <strong><code>generate_args</code></strong>:<code>GenerateArgs</code>)</p>
+<h4 id="generate_from_ids" class="doc_header"><code>generate_from_ids</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/tran2tran.py#L194" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_from_ids</code>(<strong><code>src_input_ids</code></strong>, <strong><code>generate_args</code></strong>:<code>GenerateArgs</code>)</p>
 </blockquote>
 <p>src_input_ids: (bs, enc_seq_len), returns: (bs, max_length)</p>
 

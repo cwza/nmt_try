@@ -37,6 +37,6 @@ entries:
       title: Full Test of Tran2Tran
       url: /fulltest_tran2tran
     output: web
-    title: nmt_small
+    title: nmt_try
   output: web
   title: Sidebar

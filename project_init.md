@@ -9,9 +9,9 @@ mv index.ipynb nbs
 
 ## Edit settings.ini
 ```
-lib_name = nmt_small
+lib_name = nmt_try
 user = cwza
-description = seq2seq transformer nmt experiments
+description = My experiments of nmt
 keywords = seq2seq transformer nmt
 author = cwza
 author_email = cwz0205a@gmail.com

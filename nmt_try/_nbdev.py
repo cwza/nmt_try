@@ -30,8 +30,8 @@ modules = ["data/tatoeba.py",
            "models/tran2tran.py",
            "metrics.py"]
 
-doc_url = "https://cwza.github.io/nmt_small/"
+doc_url = "https://cwza.github.io/nmt_try/"
 
-git_url = "https://github.com/cwza/nmt_small/tree/master/"
+git_url = "https://github.com/cwza/nmt_try/tree/master/"
 
 def custom_doc_links(name): return None

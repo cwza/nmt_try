@@ -120,7 +120,7 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="GRUEncoder" class="doc_header"><code>class</code> <code>GRUEncoder</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/gru2gru.py#L14" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GRUEncoder</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>num_layers</code></strong>=<em><code>1</code></em>, <strong><code>drop_p</code></strong>=<em><code>0</code></em>) :: <code>Module</code></p>
+<h2 id="GRUEncoder" class="doc_header"><code>class</code> <code>GRUEncoder</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/gru2gru.py#L14" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GRUEncoder</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>num_layers</code></strong>=<em><code>1</code></em>, <strong><code>drop_p</code></strong>=<em><code>0</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -187,7 +187,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="GRUDecoder" class="doc_header"><code>class</code> <code>GRUDecoder</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/gru2gru.py#L36" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GRUDecoder</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>num_layers</code></strong>=<em><code>1</code></em>, <strong><code>drop_p</code></strong>=<em><code>0</code></em>) :: <code>Module</code></p>
+<h2 id="GRUDecoder" class="doc_header"><code>class</code> <code>GRUDecoder</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/gru2gru.py#L36" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GRUDecoder</code>(<strong><code>vocab_size</code></strong>, <strong><code>embeded_size</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>num_layers</code></strong>=<em><code>1</code></em>, <strong><code>drop_p</code></strong>=<em><code>0</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -257,7 +257,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="GRU2GRU" class="doc_header"><code>class</code> <code>GRU2GRU</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/gru2gru.py#L61" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GRU2GRU</code>(<strong><code>encoder</code></strong>:<a href="/nmt_small/03c_models.gru2gru#GRUEncoder"><code>GRUEncoder</code></a>, <strong><code>decoder</code></strong>:<a href="/nmt_small/03c_models.gru2gru#GRUDecoder"><code>GRUDecoder</code></a>, <strong><code>num_encoder_layers</code></strong>, <strong><code>num_decoder_layers</code></strong>) :: <code>Module</code></p>
+<h2 id="GRU2GRU" class="doc_header"><code>class</code> <code>GRU2GRU</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/gru2gru.py#L61" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GRU2GRU</code>(<strong><code>encoder</code></strong>:<a href="/nmt_try/03c_models.gru2gru#GRUEncoder"><code>GRUEncoder</code></a>, <strong><code>decoder</code></strong>:<a href="/nmt_try/03c_models.gru2gru#GRUDecoder"><code>GRUDecoder</code></a>, <strong><code>num_encoder_layers</code></strong>, <strong><code>num_decoder_layers</code></strong>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -325,7 +325,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="GeneratedGRU2GRU" class="doc_header"><code>class</code> <code>GeneratedGRU2GRU</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/gru2gru.py#L88" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GeneratedGRU2GRU</code>(<strong><code>seq2seq</code></strong>:<a href="/nmt_small/03c_models.gru2gru#GRU2GRU"><code>GRU2GRU</code></a>, <strong><code>enc_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>, <strong><code>dec_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>)</p>
+<h2 id="GeneratedGRU2GRU" class="doc_header"><code>class</code> <code>GeneratedGRU2GRU</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/gru2gru.py#L88" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GeneratedGRU2GRU</code>(<strong><code>seq2seq</code></strong>:<a href="/nmt_try/03c_models.gru2gru#GRU2GRU"><code>GRU2GRU</code></a>, <strong><code>enc_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>, <strong><code>dec_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>)</p>
 </blockquote>
 <p>device is for created tensors</p>
 
@@ -369,7 +369,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generate_from_ids" class="doc_header"><code>generate_from_ids</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/models/gru2gru.py#L104" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_from_ids</code>(<strong><code>src_input_ids</code></strong>, <strong><code>generate_args</code></strong>:<code>GenerateArgs</code>)</p>
+<h4 id="generate_from_ids" class="doc_header"><code>generate_from_ids</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/gru2gru.py#L104" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_from_ids</code>(<strong><code>src_input_ids</code></strong>, <strong><code>generate_args</code></strong>:<code>GenerateArgs</code>)</p>
 </blockquote>
 <p>src_input_ids: (bs, enc_seq_len)</p>
 
