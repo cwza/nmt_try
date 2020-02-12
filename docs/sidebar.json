@@ -3,9 +3,12 @@
     "Overview": "/",
     "Data Tatoeba": "/data.tatoeba",
     "Models Patch": "/models.patch",
-    "Bert2GPT2": "/models.bert2gpt2",
-    "GRU2GRU": "/models.gru2gru",
-    "Model Tran2Tran": "/models.tran2tran",
-    "Metrics": "/metrics"
+    "Models Bert2GPT2": "/models.bert2gpt2",
+    "Models GRU2GRU": "/models.gru2gru",
+    "Models Tran2Tran": "/models.tran2tran",
+    "Metrics": "/metrics",
+    "Full Test of Bert2GPT2": "/fulltest_bert2gpt2",
+    "Full Test of GRU2GRU": "/fulltest_gru2gru",
+    "Full Test of Tran2Tran": "/fulltest_tran2tran"
   }
 }

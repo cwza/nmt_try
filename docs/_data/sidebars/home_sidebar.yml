@@ -16,17 +16,26 @@ entries:
       title: Models Patch
       url: /models.patch
     - output: web,pdf
-      title: Bert2GPT2
+      title: Models Bert2GPT2
       url: /models.bert2gpt2
     - output: web,pdf
-      title: GRU2GRU
+      title: Models GRU2GRU
       url: /models.gru2gru
     - output: web,pdf
-      title: Model Tran2Tran
+      title: Models Tran2Tran
       url: /models.tran2tran
     - output: web,pdf
       title: Metrics
       url: /metrics
+    - output: web,pdf
+      title: Full Test of Bert2GPT2
+      url: /fulltest_bert2gpt2
+    - output: web,pdf
+      title: Full Test of GRU2GRU
+      url: /fulltest_gru2gru
+    - output: web,pdf
+      title: Full Test of Tran2Tran
+      url: /fulltest_tran2tran
     output: web
     title: nmt_small
   output: web

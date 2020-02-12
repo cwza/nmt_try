@@ -18,8 +18,7 @@ summary: "Chinese to English pairs"
 -->
 
 <div class="container" id="notebook-container">
-    {% raw %}
-        
+    
 <div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
@@ -45,47 +44,14 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-<p style="color: red;">
-The default version of TensorFlow in Colab will soon switch to TensorFlow 2.x.<br>
-We recommend you <a href="https://www.tensorflow.org/guide/migrate" target="_blank">upgrade</a> now 
-or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tensorflow_version 1.x</code> magic:
-<a href="https://colab.research.google.com/notebooks/tensorflow_version.ipynb" target="_blank">more info</a>.</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># all_slow</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ori_data_loc</span> <span class="o">=</span> <span class="s1">&#39;./data/tatoeba/cmn.txt&#39;</span>
-<span class="n">tok_data_loc</span> <span class="o">=</span> <span class="s1">&#39;./data/tatoeba/tok_cmn.csv&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ori_data_loc</span> <span class="o">=</span> <span class="s1">&#39;./test_data/cmn.txt&#39;</span>
+<span class="n">tok_data_loc</span> <span class="o">=</span> <span class="s1">&#39;./test_data/tok_cmn.csv&#39;</span>
 <span class="n">enc_tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;hfl/chinese-bert-wwm-ext&#39;</span><span class="p">)</span>
 <span class="n">dec_tokenizer</span> <span class="o">=</span> <span class="n">GPT2DecoderTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;distilgpt2&#39;</span><span class="p">)</span>
 <span class="n">enc_seq_len</span> <span class="o">=</span> <span class="mi">50</span>
@@ -107,31 +73,13 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="tokenize_data" class="doc_header"><code>tokenize_data</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/data/tatoeba.py#L13" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>tokenize_data</code>(<strong><code>ori_data_loc</code></strong>, <strong><code>enc_tokenizer</code></strong>, <strong><code>dec_tokenizer</code></strong>)</p>
-</blockquote>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tok_df</span> <span class="o">=</span> <span class="n">tokenize_data</span><span class="p">(</span><span class="n">ori_data_loc</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># skip</span>
+<span class="c1"># tokenize data and save it to tok_data_loc</span>
+<span class="n">tok_df</span> <span class="o">=</span> <span class="n">_tokenize_data</span><span class="p">(</span><span class="n">ori_data_loc</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="p">)</span>
 <span class="n">tok_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">tok_data_loc</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">tok_data_loc</span><span class="p">)</span>
 </pre></div>
@@ -285,7 +233,7 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_datasets" class="doc_header"><code>get_datasets</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/data/tatoeba.py#L32" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_datasets</code>(<strong><code>tok_data_loc</code></strong>, <strong><code>enc_tokenizer</code></strong>, <strong><code>dec_tokenizer</code></strong>, <strong><code>enc_seq_len</code></strong>, <strong><code>dec_seq_len</code></strong>, <strong><code>pct</code></strong>=<em><code>1.0</code></em>)</p>
+<h4 id="get_tatoeba_dss" class="doc_header"><code>get_tatoeba_dss</code><a href="https://github.com/cwza/nmt_small/tree/master/nmt_small/data/tatoeba.py#L32" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_tatoeba_dss</code>(<strong><code>tok_data_loc</code></strong>, <strong><code>enc_tokenizer</code></strong>, <strong><code>dec_tokenizer</code></strong>, <strong><code>enc_seq_len</code></strong>, <strong><code>dec_seq_len</code></strong>, <strong><code>pct</code></strong>=<em><code>1.0</code></em>)</p>
 </blockquote>
 
 </div>
@@ -301,8 +249,8 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_dss</span> <span class="o">=</span> <span class="n">get_datasets</span><span class="p">(</span><span class="n">tok_data_loc</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="p">,</span> <span class="n">enc_seq_len</span><span class="p">,</span> <span class="n">dec_seq_len</span><span class="p">,</span> <span class="n">pct</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">dss</span> <span class="o">=</span> <span class="n">get_datasets</span><span class="p">(</span><span class="n">tok_data_loc</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="p">,</span> <span class="n">enc_seq_len</span><span class="p">,</span> <span class="n">dec_seq_len</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_dss</span> <span class="o">=</span> <span class="n">get_tatoeba_dss</span><span class="p">(</span><span class="n">tok_data_loc</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="p">,</span> <span class="n">enc_seq_len</span><span class="p">,</span> <span class="n">dec_seq_len</span><span class="p">,</span> <span class="n">pct</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">dss</span> <span class="o">=</span> <span class="n">get_tatoeba_dss</span><span class="p">(</span><span class="n">tok_data_loc</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="p">,</span> <span class="n">enc_seq_len</span><span class="p">,</span> <span class="n">dec_seq_len</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">small_dss</span><span class="o">.</span><span class="n">train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">dss</span><span class="o">.</span><span class="n">train</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
@@ -389,7 +337,6 @@ torch.Size([2, 40]) torch.int64 cuda:0 &lt;class &#39;fastai2.text.data.TensorTe
 </div>
 
 </div>
-    {% endraw %}
 </div>
  
 

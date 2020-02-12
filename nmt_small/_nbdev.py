@@ -2,8 +2,7 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"tokenize_data": "02_data.tatoeba.ipynb",
-         "get_datasets": "02_data.tatoeba.ipynb",
+index = {"get_tatoeba_dss": "02_data.tatoeba.ipynb",
          "generate_from_strs": "03a_models.patch.ipynb",
          "gen_attention_mask": "03c_models.bert2gpt2.ipynb",
          "BertEncoder": "03c_models.bert2gpt2.ipynb",

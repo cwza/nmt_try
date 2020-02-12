@@ -1,0 +1,1 @@
+from .tatoeba import *
