@@ -45,6 +45,26 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<p style="color: red;">
+The default version of TensorFlow in Colab will soon switch to TensorFlow 2.x.<br>
+We recommend you <a href="https://www.tensorflow.org/guide/migrate" target="_blank">upgrade</a> now 
+or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tensorflow_version 1.x</code> magic:
+<a href="https://colab.research.google.com/notebooks/tensorflow_version.ipynb" target="_blank">more info</a>.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -256,27 +276,6 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-1-6020c62b08f1&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>small_dss <span class="ansi-blue-fg">=</span> get_tatoeba_dss<span class="ansi-blue-fg">(</span>tok_data_loc<span class="ansi-blue-fg">,</span> enc_tokenizer<span class="ansi-blue-fg">,</span> dec_tokenizer<span class="ansi-blue-fg">,</span> enc_seq_len<span class="ansi-blue-fg">,</span> dec_seq_len<span class="ansi-blue-fg">,</span> pct<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0.5</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> dss <span class="ansi-blue-fg">=</span> get_tatoeba_dss<span class="ansi-blue-fg">(</span>tok_data_loc<span class="ansi-blue-fg">,</span> enc_tokenizer<span class="ansi-blue-fg">,</span> dec_tokenizer<span class="ansi-blue-fg">,</span> enc_seq_len<span class="ansi-blue-fg">,</span> dec_seq_len<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> test_eq<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>small_dss<span class="ansi-blue-fg">.</span>train<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> len<span class="ansi-blue-fg">(</span>dss<span class="ansi-blue-fg">.</span>train<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">//</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;get_tatoeba_dss&#39; is not defined</pre>
-</div>
-</div>
-
 </div>
 </div>
 
