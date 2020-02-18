@@ -40,11 +40,20 @@ entries:
       title: Full Test of GRU2GRU
       url: /fulltest_gru2gru
     - output: web,pdf
-      title: Title
-      url: /nc_qrnn2qrnn
+      title: Full Test of QRNN2AttnQRNN
+      url: /fulltest_qrnn2attnqrnn
+    - output: web,pdf
+      title: Full Test of QRNN2QRNN
+      url: /fulltest_qrnn2qrnn
     - output: web,pdf
       title: Full Test of Tran2Tran
       url: /fulltest_tran2tran
+    - output: web,pdf
+      title: Try news commentary data with gru2gru model
+      url: /nc_gru2gru
+    - output: web,pdf
+      title: Try news commentary data with qrnn2qrnn model
+      url: /nc_qrnn2qrnn
     - output: web,pdf
       title: Try news commentary data with tran2tran model
       url: /nc_tran2tran

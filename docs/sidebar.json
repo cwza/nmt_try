@@ -11,8 +11,11 @@
     "Metrics": "/metrics",
     "Full Test of Bert2GPT2": "/fulltest_bert2gpt2",
     "Full Test of GRU2GRU": "/fulltest_gru2gru",
-    "Title": "/nc_qrnn2qrnn",
+    "Full Test of QRNN2AttnQRNN": "/fulltest_qrnn2attnqrnn",
+    "Full Test of QRNN2QRNN": "/fulltest_qrnn2qrnn",
     "Full Test of Tran2Tran": "/fulltest_tran2tran",
+    "Try news commentary data with gru2gru model": "/nc_gru2gru",
+    "Try news commentary data with qrnn2qrnn model": "/nc_qrnn2qrnn",
     "Try news commentary data with tran2tran model": "/nc_tran2tran"
   }
 }
