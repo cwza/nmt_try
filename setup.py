@@ -45,7 +45,7 @@ setuptools.setup(
     install_requires = [
         'fastai_transformers_utils @ git+https://github.com/cwza/fastai_transformers_utils.git',
         'fastai2_utils @ git+https://github.com/cwza/fastai2_utils.git',
-        'nltk', 'optuna'
+        'nltk', 'optuna', 'ninja',
     ],
     extras_require={
         'dev': ['nbdev']

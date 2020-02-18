@@ -10,6 +10,9 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
+      title: Data News_Commentary
+      url: /data.news_commentary
+    - output: web,pdf
       title: Data Tatoeba
       url: /data.tatoeba
     - output: web,pdf
@@ -21,6 +24,9 @@ entries:
     - output: web,pdf
       title: Models GRU2GRU
       url: /models.gru2gru
+    - output: web,pdf
+      title: Models QRNN2QRNN
+      url: /models.qrnn2qrnn
     - output: web,pdf
       title: Models Tran2Tran
       url: /models.tran2tran
@@ -34,8 +40,14 @@ entries:
       title: Full Test of GRU2GRU
       url: /fulltest_gru2gru
     - output: web,pdf
+      title: Title
+      url: /nc_qrnn2qrnn
+    - output: web,pdf
       title: Full Test of Tran2Tran
       url: /fulltest_tran2tran
+    - output: web,pdf
+      title: Try news commentary data with tran2tran model
+      url: /nc_tran2tran
     output: web
     title: nmt_try
   output: web

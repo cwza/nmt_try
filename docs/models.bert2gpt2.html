@@ -18,7 +18,8 @@ sidebar: home_sidebar
 -->
 
 <div class="container" id="notebook-container">
-    
+    {% raw %}
+        
 <div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
@@ -111,7 +112,7 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="gen_attention_mask" class="doc_header"><code>gen_attention_mask</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>gen_attention_mask</code>(<strong><code>inp_ids</code></strong>, <strong><code>pad_id</code></strong>)</p>
+<h4 id="gen_attention_mask" class="doc_header"><code>gen_attention_mask</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L15" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>gen_attention_mask</code>(<strong><code>inp_ids</code></strong>, <strong><code>pad_id</code></strong>)</p>
 </blockquote>
 <p>Returns Tensor where 0 are positions that contain pad_id, others 1.
 input_ids: (bs, seq_len) returns: (bs, seq_len)</p>
@@ -159,7 +160,7 @@ input_ids: (bs, seq_len) returns: (bs, seq_len)</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="BertEncoder" class="doc_header"><code>class</code> <code>BertEncoder</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L25" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BertEncoder</code>(<strong><code>model_name</code></strong>) :: <code>Module</code></p>
+<h2 id="BertEncoder" class="doc_header"><code>class</code> <code>BertEncoder</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L24" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BertEncoder</code>(<strong><code>model_name</code></strong>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -245,120 +246,6 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="CrossAttention">CrossAttention<a class="anchor-link" href="#CrossAttention">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h2 id="BatchFirstMultiheadAttention" class="doc_header"><code>class</code> <code>BatchFirstMultiheadAttention</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L40" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BatchFirstMultiheadAttention</code>(<strong><code>embed_dim</code></strong>, <strong><code>num_heads</code></strong>, <strong><code>dropout</code></strong>=<em><code>0.0</code></em>, <strong><code>bias</code></strong>=<em><code>True</code></em>, <strong><code>add_bias_kv</code></strong>=<em><code>False</code></em>, <strong><code>add_zero_attn</code></strong>=<em><code>False</code></em>, <strong><code>kdim</code></strong>=<em><code>None</code></em>, <strong><code>vdim</code></strong>=<em><code>None</code></em>) :: <code>MultiheadAttention</code></p>
-</blockquote>
-<p>Pytorch wants your query, key, value be (seq_len, b, embed_dim) and return (seq_len, b, embed_dim)
-But I like batch-first thing. input: (b, seq_len, embed_dim) output: (b, seq_len, embed_dim)</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">multi_attn</span> <span class="o">=</span> <span class="n">BatchFirstMultiheadAttention</span><span class="p">(</span><span class="n">embed_dim</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">query</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">768</span><span class="p">))</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">768</span><span class="p">))</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">768</span><span class="p">))</span>
-<span class="n">attn_output</span><span class="p">,</span> <span class="n">attn_weight</span> <span class="o">=</span> <span class="n">multi_attn</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">attn_output</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">768</span><span class="p">))</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">attn_weight</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h2 id="CrossAttention" class="doc_header"><code>class</code> <code>CrossAttention</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L60" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>CrossAttention</code>(<strong><code>embed_dim</code></strong>, <strong><code>num_heads</code></strong>=<em><code>1</code></em>, <strong><code>drop_p</code></strong>=<em><code>0</code></em>, <strong><code>num_layers</code></strong>=<em><code>1</code></em>) :: <code>Module</code></p>
-</blockquote>
-<p>Base class for all neural network modules.</p>
-<p>Your models should also subclass this class.</p>
-<p>Modules can also contain other Modules, allowing to nest them in
-a tree structure. You can assign the submodules as regular attributes::</p>
-
-<pre><code>import torch.nn as nn
-import torch.nn.functional as F
-
-class Model(nn.Module):
-    def __init__(self):
-        super(Model, self).__init__()
-        self.conv1 = nn.Conv2d(1, 20, 5)
-        self.conv2 = nn.Conv2d(20, 20, 5)
-
-    def forward(self, x):
-        x = F.relu(self.conv1(x))
-        return F.relu(self.conv2(x))
-
-</code></pre>
-<p>Submodules assigned in this way will be registered, and will have their
-parameters converted too when you call :meth:<code>to</code>, etc.</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tgt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">768</span><span class="p">))</span>
-<span class="n">src</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">768</span><span class="p">))</span>
-<span class="n">src_key_padding_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span><span class="o">.</span><span class="n">bool</span><span class="p">()</span>
-<span class="n">cross_attn</span> <span class="o">=</span> <span class="n">CrossAttention</span><span class="p">(</span><span class="n">embed_dim</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="n">cross_attn_out</span><span class="p">,</span> <span class="n">cross_attn_weight</span> <span class="o">=</span> <span class="n">cross_attn</span><span class="p">(</span><span class="n">tgt</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">src_key_padding_mask</span><span class="p">)</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">cross_attn_out</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">768</span><span class="p">))</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">cross_attn_weight</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="GPT2Decoder">GPT2Decoder<a class="anchor-link" href="#GPT2Decoder">&#182;</a></h2>
 </div>
 </div>
@@ -397,7 +284,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="GPT2Decoder" class="doc_header"><code>class</code> <code>GPT2Decoder</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L100" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GPT2Decoder</code>(<strong><code>model_name</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>vocab_size</code></strong>, <strong><code>num_heads</code></strong>=<em><code>1</code></em>, <strong><code>drop_p</code></strong>=<em><code>0</code></em>, <strong><code>num_layers</code></strong>=<em><code>1</code></em>) :: <code>Module</code></p>
+<h2 id="GPT2Decoder" class="doc_header"><code>class</code> <code>GPT2Decoder</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L59" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GPT2Decoder</code>(<strong><code>model_name</code></strong>, <strong><code>pad_id</code></strong>, <strong><code>vocab_size</code></strong>, <strong><code>num_heads</code></strong>=<em><code>1</code></em>, <strong><code>drop_p</code></strong>=<em><code>0</code></em>, <strong><code>num_layers</code></strong>=<em><code>1</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -498,7 +385,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Bert2GPT2" class="doc_header"><code>class</code> <code>Bert2GPT2</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L136" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Bert2GPT2</code>(<strong><code>encoder</code></strong>:<a href="/nmt_try/03c_models.bert2gpt2#BertEncoder"><code>BertEncoder</code></a>, <strong><code>decoder</code></strong>:<a href="/nmt_try/03c_models.bert2gpt2#GPT2Decoder"><code>GPT2Decoder</code></a>, <strong><code>enc_pad_id</code></strong>) :: <code>Module</code></p>
+<h2 id="Bert2GPT2" class="doc_header"><code>class</code> <code>Bert2GPT2</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L95" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Bert2GPT2</code>(<strong><code>encoder</code></strong>:<a href="/nmt_try/03c_models.bert2gpt2#BertEncoder"><code>BertEncoder</code></a>, <strong><code>decoder</code></strong>:<a href="/nmt_try/03c_models.bert2gpt2#GPT2Decoder"><code>GPT2Decoder</code></a>, <strong><code>enc_pad_id</code></strong>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -566,7 +453,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="GeneratedBert2GPT2" class="doc_header"><code>class</code> <code>GeneratedBert2GPT2</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L159" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GeneratedBert2GPT2</code>(<strong><code>seq2seq</code></strong>:<a href="/nmt_try/03c_models.bert2gpt2#Bert2GPT2"><code>Bert2GPT2</code></a>, <strong><code>enc_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>, <strong><code>dec_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>)</p>
+<h2 id="GeneratedBert2GPT2" class="doc_header"><code>class</code> <code>GeneratedBert2GPT2</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L118" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>GeneratedBert2GPT2</code>(<strong><code>seq2seq</code></strong>:<a href="/nmt_try/03c_models.bert2gpt2#Bert2GPT2"><code>Bert2GPT2</code></a>, <strong><code>enc_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>, <strong><code>dec_tokenizer</code></strong>:<code>PreTrainedTokenizer</code>)</p>
 </blockquote>
 
 </div>
@@ -595,7 +482,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generate_from_ids" class="doc_header"><code>generate_from_ids</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L172" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_from_ids</code>(<strong><code>src_input_ids</code></strong>, <strong><code>generate_args</code></strong>:<code>GenerateArgs</code>)</p>
+<h4 id="generate_from_ids" class="doc_header"><code>generate_from_ids</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/bert2gpt2.py#L131" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_from_ids</code>(<strong><code>src_input_ids</code></strong>, <strong><code>generate_args</code></strong>:<code>GenerateArgs</code>)</p>
 </blockquote>
 <p>src_input_ids: (bs, enc_seq_len), returns: (bs, max_length)</p>
 
@@ -625,6 +512,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 </div>
 
 </div>
+    {% endraw %}
 </div>
  
 

@@ -1,14 +1,18 @@
 {
   "nmt_try": {
     "Overview": "/",
+    "Data News_Commentary": "/data.news_commentary",
     "Data Tatoeba": "/data.tatoeba",
     "Models Patch": "/models.patch",
     "Models Bert2GPT2": "/models.bert2gpt2",
     "Models GRU2GRU": "/models.gru2gru",
+    "Models QRNN2QRNN": "/models.qrnn2qrnn",
     "Models Tran2Tran": "/models.tran2tran",
     "Metrics": "/metrics",
     "Full Test of Bert2GPT2": "/fulltest_bert2gpt2",
     "Full Test of GRU2GRU": "/fulltest_gru2gru",
-    "Full Test of Tran2Tran": "/fulltest_tran2tran"
+    "Title": "/nc_qrnn2qrnn",
+    "Full Test of Tran2Tran": "/fulltest_tran2tran",
+    "Try news commentary data with tran2tran model": "/nc_tran2tran"
   }
 }

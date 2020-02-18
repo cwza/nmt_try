@@ -18,7 +18,8 @@ sidebar: home_sidebar
 -->
 
 <div class="container" id="notebook-container">
-    
+    {% raw %}
+        
 <div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
@@ -77,7 +78,7 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generate_from_strs" class="doc_header"><code>generate_from_strs</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/patch.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_from_strs</code>(<strong><code>src_strs</code></strong>, <strong><code>generate_args</code></strong>:<code>GenerateArgs</code>, <strong><code>device</code></strong>)</p>
+<h4 id="generate_from_strs" class="doc_header"><code>generate_from_strs</code><a href="https://github.com/cwza/nmt_try/tree/master/nmt_try/models/patch.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_from_strs</code>(<strong><code>src_strs</code></strong>, <strong><code>generate_args</code></strong>:<code>GenerateArgs</code>, <strong><code>device</code></strong>)</p>
 </blockquote>
 <p>self.seq2seq.eval, self.enc_tokenizer.encode, self.dec_tokenizer.decode, self.generate_from_ids</p>
 
@@ -118,8 +119,8 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39; smiles unemploymentophone corporatepai first obserpre&#39;,
- &#39; smiles unemployment orally Lifetime depression sheltered Rhod Jedi&#39;]</pre>
+<pre>[&#39; sorrow LH Concern Ward Shaman thinker thinker Identification&#39;,
+ &#39; sorrow LH Concern Ward Shaman thinker thinker Identification&#39;]</pre>
 </div>
 
 </div>
@@ -157,8 +158,8 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;biansbians outsbians outsbians outs authored&#39;,
- &#39;token shatter shatter shatter shatter shatter shatter shatter&#39;]</pre>
+<pre>[&#39; journals journals journals journals journals journals journals journals&#39;,
+ &#39; IMF compete compete compete compete compete compete compete&#39;]</pre>
 </div>
 
 </div>
@@ -192,7 +193,103 @@ or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tenso
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;sylvsylvsylvsylvsylvsylvsylvsylv&#39;,
+ &#39; Alcohol Alcohol Alcohol Alcohol Alcohol Alcohol Alcohol Alcohol&#39;]</pre>
 </div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test for GeneratedQRNN2QRNN</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">QRNNEncoder</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">enc_tokenizer</span><span class="p">),</span> <span class="mi">256</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="o">.</span><span class="n">pad_token_id</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">QRNNDecoder</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dec_tokenizer</span><span class="p">),</span> <span class="mi">256</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="o">.</span><span class="n">pad_token_id</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">qrnn2qrnn</span> <span class="o">=</span> <span class="n">QRNN2QRNN</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">generated_qrnn2qrnn</span> <span class="o">=</span> <span class="n">GeneratedQRNN2QRNN</span><span class="p">(</span><span class="n">qrnn2qrnn</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="p">)</span>
+
+<span class="n">generate_args</span> <span class="o">=</span> <span class="n">GenerateArgs</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_beams</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">src_strs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;天氣不錯&#39;</span><span class="p">,</span> <span class="s1">&#39;你好&#39;</span><span class="p">]</span>
+<span class="n">pred_strs</span> <span class="o">=</span> <span class="n">generated_qrnn2qrnn</span><span class="o">.</span><span class="n">generate_from_strs</span><span class="p">(</span><span class="n">src_strs</span><span class="p">,</span> <span class="n">generate_args</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">pred_strs</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39; proponents booth Giov flirt fuelled accordinglysuits�&#39;,
+ &#39; anxablyDuration Sebast cog surrenderedanded Telegraph&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test for GeneratedQRNN2AttnQRNN</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">QRNNEncoder</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">enc_tokenizer</span><span class="p">),</span> <span class="mi">256</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="o">.</span><span class="n">pad_token_id</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">CrossAttnQRNNDecoder</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dec_tokenizer</span><span class="p">),</span> <span class="mi">256</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="o">.</span><span class="n">pad_token_id</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">qrnn2attnqrnn</span> <span class="o">=</span> <span class="n">QRNN2AttnQRNN</span><span class="p">(</span><span class="n">encoder</span><span class="p">,</span> <span class="n">decoder</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">generated_qrnn2attnqrnn</span> <span class="o">=</span> <span class="n">GeneratedQRNN2AttnQRNN</span><span class="p">(</span><span class="n">qrnn2attnqrnn</span><span class="p">,</span> <span class="n">enc_tokenizer</span><span class="p">,</span> <span class="n">dec_tokenizer</span><span class="p">)</span>
+
+<span class="n">generate_args</span> <span class="o">=</span> <span class="n">GenerateArgs</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_beams</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">src_strs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;天氣不錯&#39;</span><span class="p">,</span> <span class="s1">&#39;你好&#39;</span><span class="p">]</span>
+<span class="n">pred_strs</span> <span class="o">=</span> <span class="n">generated_qrnn2attnqrnn</span><span class="o">.</span><span class="n">generate_from_strs</span><span class="p">(</span><span class="n">src_strs</span><span class="p">,</span> <span class="n">generate_args</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">pred_strs</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39; Plane Plane Plane Plane Plane Plane Plane Plane&#39;,
+ &#39; scapego scapego scapego scapego scapego scapego scapego scapego&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
 </div>
  
 

@@ -12,11 +12,14 @@ from fastai_transformers_utils.tokenizers import GPT2DecoderTokenizer
 from .gru2gru import GeneratedGRU2GRU, GRUEncoder, GRUDecoder, GRU2GRU
 from .tran2tran import GeneratedTran2Tran, TranEncoder, TranDecoder, Tran2Tran
 from .bert2gpt2 import BertEncoder, GPT2Decoder, Bert2GPT2, GeneratedBert2GPT2
+from .qrnn2qrnn import GeneratedQRNN2QRNN, QRNNEncoder, QRNNDecoder, QRNN2QRNN, GeneratedQRNN2AttnQRNN, CrossAttnQRNNDecoder, QRNN2AttnQRNN
+
 
 # Cell
 @patch
 @torch.no_grad()
-def generate_from_strs(self: [GeneratedTran2Tran, GeneratedGRU2GRU, GeneratedBert2GPT2], src_strs, generate_args: GenerateArgs, device):
+def generate_from_strs(self: [GeneratedTran2Tran, GeneratedGRU2GRU, GeneratedBert2GPT2, GeneratedQRNN2QRNN, GeneratedQRNN2AttnQRNN],
+                       src_strs, generate_args: GenerateArgs, device):
     ''' self.seq2seq.eval, self.enc_tokenizer.encode, self.dec_tokenizer.decode, self.generate_from_ids '''
     self.seq2seq.eval()
 
