@@ -603,8 +603,8 @@ UfCLiFQYBb+ISIX5//I3N1GxtuojAAAAAElFTkSuQmCC
                 background: #F44336;
             }
         </style>
-      <progress value='764' class='' max='801', style='width:300px; height:20px; vertical-align: middle;'></progress>
-      95.38% [764/801 08:37<00:25]
+      <progress value='22' class='' max='801', style='width:300px; height:20px; vertical-align: middle;'></progress>
+      2.75% [22/801 00:09<05:46]
     </div>
     
 </div>
@@ -639,6 +639,96 @@ UfCLiFQYBb+ISIX5//I3N1GxtuojAAAAAElFTkSuQmCC
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">src_strs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;They have their own vision; their own planners, architects, and engineers; and their own manpower.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;As demand rises, more and better jobs will be created not only in Asia, but also globally, along supply chains and across production networks.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;If the EU is to progress beyond the limits of a common economic and monetary policy and develop a defense and security policy along with a common foreign policy, the UK must be on board.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Today, when a new strain of influenza appears in Asia, scientists collect a throat swab, isolate the virus, and run the strain’s genetic sequence.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Other elements of Lee’s plan include construction of eco-friendly transportation networks, such as high-speed railways and hundreds of kilometers of bicycle tracks, and generating energy using waste methane from landfills.&#39;</span><span class="p">,</span>
+
+<span class="p">]</span>
+<span class="n">tgt_strs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;他们有自己的愿景，自己的规划师、建筑师和工程师，自己的劳动力。&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;随着需求不断攀升，不仅亚洲会创造出更多更好的就业机会，全球范围内的供应链及整个生产网络也将会从中受益。&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;如果欧盟想要突破共同的经济和货币政策的界限，在发展安全防卫政策的同时发展共同的外交政策，英国必须参与。&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;如今，当新的流感菌株在亚洲出现时，科学家收集咽喉棉签，分离病毒，测定毒株的基因序列。&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;李总统计划的其他要素还包括建设生态友好的运输网络，例如高速铁路以及几百公里长的自行车车道，并且从垃圾堆中利用甲烷来制造能源。&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">generated_gru2gru</span><span class="o">.</span><span class="n">generate_from_strs</span><span class="p">(</span><span class="n">src_strs</span><span class="p">,</span> <span class="n">generate_args</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda:0&#39;</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Disabled padding because no padding token set (pad_token: [PAD], pad_token_id: 0).
+To remove this error, you can add a new pad token and then resize model embedding:
+	tokenizer.pad_token = &#39;&lt;PAD&gt;&#39;
+	model.resize_token_embeddings(len(tokenizer))
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-15-a2952381a52e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     14</span>     <span class="ansi-blue-fg">&#39;李总统计划的其他要素还包括建设生态友好的运输网络，例如高速铁路以及几百公里长的自行车车道，并且从垃圾堆中利用甲烷来制造能源。&#39;</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span> ]
+<span class="ansi-green-fg">---&gt; 16</span><span class="ansi-red-fg"> </span>result <span class="ansi-blue-fg">=</span> generated_gru2gru<span class="ansi-blue-fg">.</span>generate_from_strs<span class="ansi-blue-fg">(</span>src_strs<span class="ansi-blue-fg">,</span> generate_args<span class="ansi-blue-fg">,</span> device<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;cuda:0&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     17</span> result
+
+<span class="ansi-green-fg">/usr/local/lib/python3.6/dist-packages/torch/autograd/grad_mode.py</span> in <span class="ansi-cyan-fg">decorate_no_grad</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     47</span>         <span class="ansi-green-fg">def</span> decorate_no_grad<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     48</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 49</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> func<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     50</span>         <span class="ansi-green-fg">return</span> decorate_no_grad
+<span class="ansi-green-intense-fg ansi-bold">     51</span> 
+
+<span class="ansi-green-fg">/content/gdrive/My Drive/Colab_Codes/nmt_try/nmt_try/models/patch.py</span> in <span class="ansi-cyan-fg">generate_from_strs</span><span class="ansi-blue-fg">(self, src_strs, generate_args, device)</span>
+<span class="ansi-green-intense-fg ansi-bold">     29</span>         src_ids <span class="ansi-blue-fg">=</span> torch<span class="ansi-blue-fg">.</span>tensor<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>src_id<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> device<span class="ansi-blue-fg">=</span>device<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     30</span>         pred_ids <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>generate_from_ids<span class="ansi-blue-fg">(</span>src_ids<span class="ansi-blue-fg">,</span> generate_args<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 31</span><span class="ansi-red-fg">         </span>pred_str <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>dec_tokenizer<span class="ansi-blue-fg">.</span>decode<span class="ansi-blue-fg">(</span>pred_ids<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> skip_special_tokens<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     32</span>         pred_strs<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>pred_str<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     33</span>     <span class="ansi-green-fg">return</span> pred_strs
+
+<span class="ansi-green-fg">/usr/local/lib/python3.6/dist-packages/transformers/tokenization_utils.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, token_ids, skip_special_tokens, clean_up_tokenization_spaces)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1804</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1805</span>     <span class="ansi-green-fg">def</span> decode<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> token_ids<span class="ansi-blue-fg">,</span> skip_special_tokens<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> clean_up_tokenization_spaces<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1806</span><span class="ansi-red-fg">         </span>text <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>tokenizer<span class="ansi-blue-fg">.</span>decode<span class="ansi-blue-fg">(</span>token_ids<span class="ansi-blue-fg">,</span> skip_special_tokens<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1807</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1808</span>         <span class="ansi-green-fg">if</span> clean_up_tokenization_spaces<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.6/dist-packages/tokenizers/implementations/base_tokenizer.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, ids, skip_special_tokens)</span>
+<span class="ansi-green-intense-fg ansi-bold">    167</span>             The decoded string
+<span class="ansi-green-intense-fg ansi-bold">    168</span>         &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 169</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_tokenizer<span class="ansi-blue-fg">.</span>decode<span class="ansi-blue-fg">(</span>ids<span class="ansi-blue-fg">,</span> skip_special_tokens<span class="ansi-blue-fg">=</span>skip_special_tokens<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    170</span> 
+<span class="ansi-green-intense-fg ansi-bold">    171</span>     def decode_batch(
+
+<span class="ansi-red-fg">TypeError</span>: </pre>
+</div>
+</div>
+
 </div>
 </div>
 

@@ -22,9 +22,9 @@ def compute_bleu(generated_seq2seq, generate_args: GenerateArgs, dec_tokenizer: 
     for src_inp_ids, tgt_inp_ids, _ in progress_bar(val_dl):
         pred_ids = generated_seq2seq.generate_from_ids(src_inp_ids, generate_args) # (bs, max_len)
         for pred_id in pred_ids:
-            pred_tok = dec_tokenizer.convert_ids_to_tokens(pred_id, skip_special_tokens=True)
+            pred_tok = dec_tokenizer.convert_ids_to_tokens(list(pred_id), skip_special_tokens=True)
             pred_toks.append(pred_tok)
         for tgt_id in tgt_inp_ids:
-            tgt_tok = dec_tokenizer.convert_ids_to_tokens(tgt_id, skip_special_tokens=True)
+            tgt_tok = dec_tokenizer.convert_ids_to_tokens(list(tgt_id), skip_special_tokens=True)
             tgt_toks.append([tgt_tok])
     return corpus_bleu(tgt_toks, pred_toks)

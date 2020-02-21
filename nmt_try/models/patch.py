@@ -28,6 +28,6 @@ def generate_from_strs(self: [GeneratedTran2Tran, GeneratedGRU2GRU, GeneratedBer
         src_id = self.enc_tokenizer.encode(src_str)
         src_ids = torch.tensor([src_id], device=device)
         pred_ids = self.generate_from_ids(src_ids, generate_args)
-        pred_str = self.dec_tokenizer.decode(pred_ids[0], skip_special_tokens=True)
+        pred_str = self.dec_tokenizer.decode(list(pred_ids[0]), skip_special_tokens=True)
         pred_strs.append(pred_str)
     return pred_strs
